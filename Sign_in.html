@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create new Account</title>
+    <link rel="stylesheet" href="/css/all.min.css" />
+    <link rel="stylesheet" href="/css/fontawesome.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-image: url("/images/signup.jpg"); /* Replace with your image file path */
+        background-size: cover;
+        background-position: center;
+        color: #333;
+      }
+
+    
+      .signup-form {
+        background: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        width: 500px;
+    }
+
+    .signup-form h2 {
+        margin-bottom: 20px;
+        color: #4CAF50;
+        font-weight: bold;
+    }
+
+    .signup-form input[type="email"],
+    .signup-form input[type="password"] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 7px 0;
+        border: 1px solid #ccc;
+        border-radius: 25px;
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+
+    .signup-form button {
+        width: 20%;
+        padding: 14px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 18px;
+        margin-top: 20px;
+        transition: background-color 0.3s;
+    }
+
+    .signup-form button:hover {
+        background-color: #45a049;
+    }
+
+    .signup-form p {
+        margin-top: 20px;
+        font-size: 15px;
+    }
+
+    .signup-form a {
+        color: #4CAF50;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .signup-form a:hover {
+        text-decoration: none;
+    }
+
+    /* Custom notification styles */
+    .notification {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #f44336; /* Red background color */
+        color: white;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        display: none; /* Initially hidden */
+        z-index: 1000; /* Ensure it's above other elements */
+        font-size: 14px; /* Adjust font size here */
+    }
+    </style>
+  </head>
+  <body>
+    <div class="signup-form">
+      <h1 class="heading">Welcome To signin</h1>
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="password" placeholder="Password" required />
+        <a onclick="signup()" href="#" id="signin" class="btn">
+          <span class="text text-1">Sign In</span>
+          <span class="text text-2" aria-hidden="true">Sign In</span>
+        </a>
+      <p>Don't have an account? <a href="/Sign_up.html">Sign Up</a></p>
+    </div>
+    <div id="notification" class="notification"></div>
+    <script>
+      function signup() {
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+
+        if (email && password) {
+          showNotification("Signed in successfully!", "green");
+          window.location.href = "/index.html";
+
+          // Clear input fields after signup
+          document.getElementById("email").value = "";
+          document.getElementById("password").value = "";
+
+          // Redirect to index page
+        } else {
+          showNotification("Please fill out all fields.", "red");
+        }
+      }
+      function showNotification(message, color) {
+        var notification = document.getElementById("notification");
+        notification.style.backgroundColor = color;
+        notification.innerText = message;
+        notification.style.display = "block";
+
+        // Hide the notification after 3 seconds
+        setTimeout(function () {
+          notification.style.display = "none";
+        }, 5000);
+      }
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Sign-In Form with Background Image</title>
+<link rel="stylesheet" href="/css/all.min.css">
+<link rel="stylesheet" href="/css/fontawesome.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="signin-form">
+        <h2>Sign In</h2>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button onclick="signin()">Sign In</button>
+        <a onclick="signin()" href="#" id="signin" class="btn">
+            <span class="text text-1">Sign In</span>
+            <span class="text text-2" aria-hidden="true">Sign In</span>
+          </a>
+        <p>Don't have an account? <a href="/Sign_in.html">Sign up</a></p>
+
+    </div>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('/images/signup.jpg'); 
+            background-size: cover;
+            background-position: center;
+            color: #333;
+        }
+    
+        .signin-form {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+    
+        .signin-form h2 {
+            margin-bottom: 20px;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+    
+        .signin-form input[type="email"],
+        .signin-form input[type="password"] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+    
+        .signin-form button {
+            width: 100%;
+            padding: 14px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+    
+        .signin-form button:hover {
+            background-color: #45a049;
+        }
+    
+        .signin-form p {
+            margin-top: 20px;
+        }
+    
+        .signin-form a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    
+        .signin-form a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+    <script>
+        function signin() {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+          
+            if (email && password) {
+              alert(`Signed up successfully!\nEmail: ${email}\nPassword: ${password}`);
+          
+              Clear input fields after signup
+              document.getElementById("email").value = "";
+              document.getElementById("password").value = "";
+          
+              Redirect to index page
+              window.location.href = '/index.html';
+            } else {
+              alert('Please fill out all fields.');
+            }
+          }
+          function showNotification(message, color) {
+            var notification = document.getElementById("notification");
+            notification.style.backgroundColor = color;
+            notification.innerText = message;
+            notification.style.display = "block";
+    
+             Hide the notification after 3 seconds
+            setTimeout(function () {
+              notification.style.display = "none";
+            }, 5000);
+          }
+    </script>
+</body>
+</html> -->

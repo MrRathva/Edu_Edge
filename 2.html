@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Write Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #about-intro {
+            display: flex;
+            align-items: center;
+        }
+
+        #about-intro img {
+            width: 80%;
+            max-width: 800px; /* Example maximum width for the image */
+            height: auto;
+            display: block;
+        }
+
+        #about-intro div {
+            padding-left: 20px; /* Adjust padding as needed */
+        }
+
+        #about-intro div h2 {
+            font-size: 28px;
+            color: var(--primary-color); /* Example primary color */
+        }
+
+        #about-intro div p {
+            font-size: 20px;
+            color: var(--secondary-color); /* Example secondary color */
+            white-space: pre-wrap; /* Preserve line breaks and wrap text */
+        }
+    </style>
+</head>
+<body>
+    <section id="about-intro" class="section-p1">
+        <img src="/images/abc.png" alt="Kid's Wear" srcset="">
+        <div>
+            <h2>Welcome to Kid's Wear</h2>
+            <p id="auto-write"></p>
+        </div>
+    </section>
+
+    <!-- JavaScript for auto-write effect -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const text = "Our mission is to create stylish, comfortable, and high-quality clothing for kids, ensuring they look great and feel even better.";
+            const pElement = document.getElementById("auto-write");
+            let index = 0;
+            const typingSpeed = 50; // Speed of typing in milliseconds
+            const delayBeforeRestart = 1000; // Delay before restarting in milliseconds
+
+            function typeText() {
+                if (index < text.length) {
+                    pElement.innerHTML += text.charAt(index);
+                    index++;
+                    setTimeout(typeText, typingSpeed);
+                } else {
+                    // After finishing, clear the text and restart after a delay
+                    setTimeout(() => {
+                        pElement.innerHTML = "";
+                        index = 0;
+                        typeText();
+                    }, delayBeforeRestart);
+                }
+            }
+
+            typeText();
+        });
+    </script>
+</body>
+</html>
